@@ -15,7 +15,7 @@
 				<form id="formulario" action="#" method="GET" class="form-group">
 					<div class="form-group">
 						<input id="input" type="text" class="form-control" placeholder="Ej. jmartingimenez">
-						<button type="submit" class="btn btn-primary btn-block">Buscar</button>
+						<button id="boton" type="submit" class="btn btn-secondary btn-block" disabled>Buscar</button>
 					</div>
 				</form>
 			</div>
@@ -28,11 +28,11 @@
 			<section class="col-md-10">
 				Usuario buscado: <span id="nombreUsuarioBuscado"></span><br>
 				Usuarios encontrados: <span id="totalUsuariosEncontrados"></span><br>
-				Score: <span id="scoreUsuario"></span><br>
-				Link Repositorio: <span id="linkRepositorio"></span><br>
+				<div class="d-none extraDesc">Score: <span id="scoreUsuario"></span></div>
+				<div class="d-none extraDesc">Link Repositorio: <span id="linkRepositorio"></span></div>
 			</section>										
 			<section class="col-md-2 float-right">
-					<span id="avatarUsuario"></span><br/>
+					<div class="d-none extraDesc"><span id="avatarUsuario"></span><br/></div>
 			</section>
 		</div>
 	</section>

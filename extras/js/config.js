@@ -19,13 +19,27 @@ $(document).ready(function(){
        buscarUsuario(contenidoDelInput);       
     });	
 
-    /*To Do
-		- Mejorar estilos
-		- Agregar código HTTP en el error
-		- Hacer que los mensajes aparezcan o desaparezcan
-		- Botón desactivado si no hay input
-		- Mostrar info completa si se trajo a 1 usuario solo. Mas no
-    */
+    //Se deshabilita y habilita el botón de Buscar si el input esta vacio o no
+    $('#input').keyup(function() {
+
+        var empty = false;
+        $('#input').each(function() {
+            if ($(this).val().length == 0) {
+                empty = true;
+            }
+        });
+
+        if (empty) {
+            $('#boton').attr('disabled', 'disabled');
+            $("#boton").removeClass("btn-primary");
+            $("#boton").addClass("btn-secondary");
+        } else {
+            $('#boton').removeAttr('disabled');
+            $("#boton").removeClass("btn-secondary");
+            $("#boton").addClass("btn-primary");            
+        }
+    });                    
+
     function buscarUsuario(input){
     	var apiURL = 'https://api.github.com/search/users?q="' + input + '"';
 	    $.ajax({
@@ -34,25 +48,27 @@ $(document).ready(function(){
 	        dataType: "json",
 	        success: function(result){
 	        	$("#totalUsuariosEncontrados").text(result["total_count"]);
-	        	if(result["total_count"] == 0){
-	        		$("#scoreUsuario").text("");
-	        		$("#avatarUsuario").text("");
-	        		$("#linkRepositorio").text("");
-	        	}	
-	        	else if(result["total_count"] == 1){
+	        	
+	        	//Si se encontro uno solo, se muestra todo, incluyendo score y avatar
+	        	$(".extraDesc").removeClass("d-none");
+	        	if(result["total_count"] == 1){
 	        		$("#scoreUsuario").text(result.items[0].score);
 	        		var linkRepo = result.items[0].html_url;
 	        		$("#linkRepositorio").empty().append('<a href="' + linkRepo + '">' + 
 	        			linkRepo + '</a>');
 	        		$('#avatarUsuario').empty().append('<img class="img-thumbnail img-fluid" src="' + 
 	        			result.items[0].avatar_url + '" alt="Imagen del user buscado">');	
+	        	
+	        	//Si hay N usuarios o ninguno, no se muestran las siguientes cosas
 	        	}else{
+	        		$(".extraDesc").addClass("d-none");
 	        		$("#scoreUsuario").text("");
 	        		$("#linkRepositorio").text("");
+	        		$('#avatarUsuario').empty();
 	        	}	        	
 	        },
-	        error: function(){
-	        	alert("No se pudo realizar la busqueda. Fallo en AJAX");
+	        error: function(xhr, ajaxOptions, thrownError){
+	        	alert("No se pudo realizar la busqueda. Error: " + xhr.status);
 	        }
 	    });
 	    }
