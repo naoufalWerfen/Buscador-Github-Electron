@@ -3,13 +3,14 @@
 <head>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" charset="UTF-8">
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="extras/css/estilos.css">
 	<title>Ejemplo Electron</title>
 </head>
 <body>
 	<header>
-		<div class="jumbotron col-md-12 text-center">
+		<div class="jumbotron col-md-12 text-center rounded-0">
 			<h3>Aplicación de ejemplo usando Github</h3>
-			<p>Escribi el nombre de un usuario en Github en el buscador y obtendras algunos de sus datos.</p>
+			<p class="text-info">Escribí el nombre de un usuario en Github en el buscador y obtendras algunos de sus datos.</p>
 			<br>
 			<div class="col-md-4 mx-auto">
 				<form id="formulario" action="#" method="GET" class="form-group">
@@ -19,16 +20,18 @@
 					</div>
 				</form>
 			</div>
-			<p><span class="small">Si se busca un nombre genérico que puede dar lugar a multiples resultados, solo se mostrara información de la cantidad de usuarios encontrados. Intente ser mas específico en la busqueda para obtener el score y el avatar.</span></p>
+			<p>
+				<div class="alert alert-warning small">Si se busca un nombre genérico que puede dar lugar a multiples resultados, solo se mostrara información de la cantidad de usuarios encontrados. Intente ser mas específico en la busqueda para obtener el score y el avatar.</div>
+			</p>
 		</div>
 	</header>
 
 	<section class="main container">
 		<div class="row">
 			<section class="col-md-10">
-				Usuario buscado: <span id="nombreUsuarioBuscado"></span><br>
-				Usuarios encontrados: <span id="totalUsuariosEncontrados"></span><br>
-				<div class="d-none extraDesc">Score: <span id="scoreUsuario"></span></div>
+				Usuario buscado: <span class="text-success" id="nombreUsuarioBuscado"></span><br>
+				Usuarios encontrados: <span class="text-success" id="totalUsuariosEncontrados"></span><br>
+				<div class="d-none extraDesc">Score: <span id="scoreUsuario" class="text-success"></span></div>
 				<div class="d-none extraDesc">Link Repositorio: <span id="linkRepositorio"></span></div>
 			</section>										
 			<section class="col-md-2 float-right">
