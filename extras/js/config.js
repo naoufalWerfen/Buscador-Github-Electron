@@ -20,11 +20,10 @@ $(document).ready(function(){
     });	
 
     /*To Do
-		- Ver de buscar solo un usuario
 		- Mejorar estilos
-		- Resizear imagen
 		- Agregar código HTTP en el error
 		- Hacer que los mensajes aparezcan o desaparezcan
+		- Botón desactivado si no hay input
 		- Mostrar info completa si se trajo a 1 usuario solo. Mas no
     */
     function buscarUsuario(input){
@@ -38,13 +37,18 @@ $(document).ready(function(){
 	        	if(result["total_count"] == 0){
 	        		$("#scoreUsuario").text("");
 	        		$("#avatarUsuario").text("");
+	        		$("#linkRepositorio").text("");
 	        	}	
 	        	else if(result["total_count"] == 1){
 	        		$("#scoreUsuario").text(result.items[0].score);
-	        		$('#avatarUsuario').prepend('<img class="img-thumbnail img-fluid" src="' + 
+	        		var linkRepo = result.items[0].html_url;
+	        		$("#linkRepositorio").empty().append('<a href="' + linkRepo + '">' + 
+	        			linkRepo + '</a>');
+	        		$('#avatarUsuario').empty().append('<img class="img-thumbnail img-fluid" src="' + 
 	        			result.items[0].avatar_url + '" alt="Imagen del user buscado">');	
 	        	}else{
 	        		$("#scoreUsuario").text("");
+	        		$("#linkRepositorio").text("");
 	        	}	        	
 	        },
 	        error: function(){
