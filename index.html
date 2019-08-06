@@ -8,7 +8,7 @@
 <body>
 	<header>
 		<div class="jumbotron col-md-12 text-center">
-			<h2>Aplicación de ejemplo usando Github</h2>
+			<h3>Aplicación de ejemplo usando Github</h3>
 			<p>Escribi el nombre de un usuario en Github en el buscador y obtendras algunos de sus datos.</p>
 			<br>
 			<div class="col-md-4 mx-auto">
@@ -19,18 +19,24 @@
 					</div>
 				</form>
 			</div>
+			<p><span class="small">Si se busca un nombre genérico que puede dar lugar a multiples resultados, solo se mostrara información de la cantidad de usuarios encontrados. Intente ser mas específico en la busqueda para obtener el score y el avatar.</span></p>
 		</div>
 	</header>
 
-
-	<section class="main">
-		<p>
-			Usuario buscado: <span id="nombreUsuarioBuscado"></span><br>
-			Usuarios encontrados: <span id="totalUsuariosEncontrados"></span><br>
-			Score: <span id="scoreUsuario"></span><br>
-			Avatar: <span id="avatarUsuario"></span><br/>			
-		</p>	
+	<section class="main container">
+		<div class="row">
+			<section class="col-md-10">
+				Usuario buscado: <span id="nombreUsuarioBuscado"></span><br>
+				Usuarios encontrados: <span id="totalUsuariosEncontrados"></span><br>
+				Score: <span id="scoreUsuario"></span><br>
+			</section>										
+			<section class="col-md-2 float-right">
+					<span id="avatarUsuario"></span><br/>
+			</section>
+		</div>
 	</section>
+
+	<div class="clearfix"></div>
 
 	<footer class="d-flex justify-content-center mt-auto">
 		Jonatan Gimenez - 2019

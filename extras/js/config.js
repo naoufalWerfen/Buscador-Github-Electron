@@ -41,7 +41,10 @@ $(document).ready(function(){
 	        	}	
 	        	else if(result["total_count"] == 1){
 	        		$("#scoreUsuario").text(result.items[0].score);
-	        		$('#avatarUsuario').prepend('<img src="' + result.items[0].avatar_url + '" alt="Imagen del user buscado">');	
+	        		$('#avatarUsuario').prepend('<img class="img-thumbnail img-fluid" src="' + 
+	        			result.items[0].avatar_url + '" alt="Imagen del user buscado">');	
+	        	}else{
+	        		$("#scoreUsuario").text("");
 	        	}	        	
 	        },
 	        error: function(){
