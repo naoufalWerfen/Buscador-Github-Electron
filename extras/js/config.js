@@ -52,7 +52,7 @@ $(document).ready(function(){
 	        	//Si se encontro uno solo, se muestra todo, incluyendo score y avatar
 	        	$(".extraDesc").removeClass("d-none");
 	        	if(result["total_count"] == 1){
-	        		$("#scoreUsuario").text(result.items[0].score);
+	        		$("#scoreUsuario").text(result.items[0].score.toFixed(3));
 	        		var linkRepo = result.items[0].html_url;
 	        		$("#linkRepositorio").empty().append('<a href="' + linkRepo + '">' + 
 	        			linkRepo + '</a>');
