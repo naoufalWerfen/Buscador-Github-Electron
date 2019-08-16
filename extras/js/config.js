@@ -8,7 +8,7 @@ $(document).ready(function(){
        e.preventDefault(); 
 
        //Poniendo a la vista el nombre del usuario buscado debajo
-       var contenidoDelInput = $(input).val();
+       let contenidoDelInput = $(input).val();
        $("#nombreUsuarioBuscado").text(contenidoDelInput);
 
        //Reseteando el input y volviendolo a seleccionar
@@ -41,7 +41,7 @@ $(document).ready(function(){
     });                    
 
     function buscarUsuario(input){
-    	var apiURL = 'https://api.github.com/search/users?q="' + input + '"';
+    	let apiURL = 'https://api.github.com/search/users?q="' + input + '"';
 	    $.ajax({
 	        url: apiURL,
 	        contentType: "application/json",
@@ -53,7 +53,7 @@ $(document).ready(function(){
 	        	$(".extraDesc").removeClass("d-none");
 	        	if(result["total_count"] == 1){
 	        		$("#scoreUsuario").text(result.items[0].score.toFixed(3));
-	        		var linkRepo = result.items[0].html_url;
+	        		let linkRepo = result.items[0].html_url;
 	        		$("#linkRepositorio").empty().append('<a href="' + linkRepo + '">' + 
 	        			linkRepo + '</a>');
 	        		$('#avatarUsuario').empty().append('<img class="img-thumbnail img-fluid" src="' + 
