@@ -22,9 +22,13 @@ $(document).ready(function(){
     //Se deshabilita y habilita el botón de Buscar si el input esta vacio o no
     $('#input').keyup(function() {
 
+        //Remuevo automaticamente los espacios
+        $(this).val($(this).val().replace(/\s/g, ''));
+        
+
         var empty = false;
         $('#input').each(function() {
-            if ($(this).val().length == 0) {
+            if ($(this).val() == 0) {
                 empty = true;
             }
         });
