@@ -27,6 +27,9 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Copy to Docs
+        run: cp dist/*.exe docs/
+
       - name: Upload Release Artifact
         uses: actions/upload-artifact@v2
         with:
