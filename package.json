@@ -1,10 +1,19 @@
 {
   "name": "WerfenApp",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder"
+  },
+  "build": {
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "naoufalWerfen",
+        "repo": "Buscador-Github-Electron"
+      }
+    ]
   },
   "devDependencies": {
     "electron": "^6.0.0",
@@ -12,6 +21,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "electron-updater": "^6.1.4",
     "jquery": "^3.4.1"
   }
 }
