@@ -29,9 +29,6 @@ jobs:
 
       - name: Copy to Docs
         run: cp dist/*.exe docs/
-        
-      - name: List Contents of Docs
-        run: ls -R docs/
 
       - name: Upload Release Artifact
         uses: actions/upload-artifact@v2
